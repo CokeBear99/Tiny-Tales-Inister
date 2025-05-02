@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Enemy_Bamboo_AC
+  m_Controller: {fileID: 9100000, guid: 11d6dd21dc94e294ab89cb91cf179a71, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 605dee362dd48da4d995649bff987e34, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 605dee362dd48da4d995649bff987e34, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 494f51b09642f2f4ea200982d9ddab7d, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 494f51b09642f2f4ea200982d9ddab7d, type: 2}
