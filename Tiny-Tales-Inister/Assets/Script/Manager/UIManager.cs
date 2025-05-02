@@ -47,9 +47,42 @@ public class UIManager : Singletone<UIManager>
     [Header("Gold Panel")]
     [SerializeField] private TextMeshProUGUI goldText;
 
-    private void Update()
+    [Header("Settings Panel")]
+    [SerializeField] private GameObject settingPanel;
+
+
+    private void Start()
     {
         UpdatePlayerUI();
+        UpdateStatsPanel();
+    }
+
+    private void Update()
+    {
+        MenuBarInputManage();
+        UpdateStatBar();
+    }
+
+
+
+    private void MenuBarInputManage()
+    {
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            ToggleInventoryPanel();
+        }
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            ToggleStatsPanel();
+        }
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            TogglePlayerQuestPanel();
+        }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            ToggleSettingPanel();
+        }
     }
 
 
@@ -66,10 +99,23 @@ public class UIManager : Singletone<UIManager>
         TogglePanel(inventoryPanel);
     }
 
-
-    public void ToggleNPCQuestPanel()
+    public void ToggleSettingPanel()
     {
-        TogglePanel(npcQuestPanel);
+        TogglePanel(settingPanel);
+    }
+
+    public void ToggleNPCQuestPanel(bool isToggleLogicCall)
+    {
+        // true = 기본 토글 로직 실행
+        if (isToggleLogicCall)
+        {
+            TogglePanel(npcQuestPanel);
+        }
+        // false = 패널 닫기 실행
+        else
+        {
+            npcQuestPanel.SetActive(false);
+        }
     }
 
     public void TogglePlayerQuestPanel()
@@ -77,9 +123,18 @@ public class UIManager : Singletone<UIManager>
         TogglePanel(playerQuestPanel);
     }
 
-    public void ToggleShopPanel()
+    public void ToggleShopPanel(bool isToggleLogicCall)
     {
-        TogglePanel(shopPanel);
+        // true = 기본 토글 로직 실행
+        if (isToggleLogicCall)
+        {
+            TogglePanel(shopPanel);
+        }
+        // false = 패널 닫기 실행
+        else
+        {
+            shopPanel.SetActive(false);
+        }
     }
 
     private void TogglePanel(GameObject panel)
@@ -96,15 +151,18 @@ public class UIManager : Singletone<UIManager>
 
     private void UpdatePlayerUI()
     {
-        hpBar.fillAmount = Mathf.Lerp(hpBar.fillAmount, stats.Hp / stats.MaxHp, 10f * Time.deltaTime);
-        mpBar.fillAmount = Mathf.Lerp(mpBar.fillAmount, stats.Mp / stats.MaxMp, 10f * Time.deltaTime);
-        expBar.fillAmount = Mathf.Lerp(expBar.fillAmount, stats.CurrentExp / stats.NextLevelExp, 10f * Time.deltaTime);
-
         levelText.text = $"Level {stats.Level}";
         hpText.text = $"{stats.Hp} / {stats.MaxHp}";
         mpText.text = $"{stats.Mp} / {stats.MaxMp}";
         expText.text = $"{stats.CurrentExp} / {stats.NextLevelExp}";
         goldText.text = GoldManager.Instance.Golds.ToString();
+    }
+
+    private void UpdateStatBar()
+    {
+        hpBar.fillAmount = Mathf.Lerp(hpBar.fillAmount, stats.Hp / stats.MaxHp, 10f * Time.deltaTime);
+        mpBar.fillAmount = Mathf.Lerp(mpBar.fillAmount, stats.Mp / stats.MaxMp, 10f * Time.deltaTime);
+        expBar.fillAmount = Mathf.Lerp(expBar.fillAmount, stats.CurrentExp / stats.NextLevelExp, 10f * Time.deltaTime);
     }
 
     private void UpdateStatsPanel()
@@ -134,12 +192,24 @@ public class UIManager : Singletone<UIManager>
     {
         PlayerUpgrade.OnPlayerUpgradeEvent += UpgradeCallback;
         DialogueManager.OnExtraInteractionEvent += ExtraInteractionCallback;
+
+        if (stats != null)
+        {
+            stats.OnStatsChanged += UpdatePlayerUI;
+            stats.OnStatsChanged += UpdateStatsPanel;
+        }
     }
 
     private void OnDisable()
     {
         PlayerUpgrade.OnPlayerUpgradeEvent -= UpgradeCallback;
         DialogueManager.OnExtraInteractionEvent -= ExtraInteractionCallback;
+
+        if (stats != null)
+        {
+            stats.OnStatsChanged -= UpdatePlayerUI;
+            stats.OnStatsChanged -= UpdateStatsPanel;
+        }
     }
 
     private void UpgradeCallback()
@@ -152,11 +222,11 @@ public class UIManager : Singletone<UIManager>
         switch (type)
         {
             case InteractionType.Quest:
-                ToggleNPCQuestPanel();
+                ToggleNPCQuestPanel(true);
                 break;
 
             case InteractionType.Shop:
-                ToggleShopPanel();
+                ToggleShopPanel(true);
                 break;
         }
     }

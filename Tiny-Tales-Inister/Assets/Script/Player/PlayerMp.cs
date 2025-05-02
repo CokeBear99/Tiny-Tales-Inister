@@ -13,10 +13,7 @@ public class PlayerMp : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            UseMp(1f);
-        }
+
     }
 
 
