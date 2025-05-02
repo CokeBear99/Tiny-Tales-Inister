@@ -21,6 +21,6 @@ MonoBehaviour:
   ItemReward:
     Item: {fileID: 11400000, guid: 897d72fa7862a604893f39d44cc5c8ae, type: 2}
     Quantity: 10
-  CurrentStatus: 5
-  QuestCompleted: 1
-  QuestAccepted: 1
+  CurrentStatus: 0
+  QuestCompleted: 0
+  QuestAccepted: 0

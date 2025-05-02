@@ -41,6 +41,12 @@ public class UIManager : Singletone<UIManager>
     [SerializeField] private GameObject npcQuestPanel;
     [SerializeField] private GameObject playerQuestPanel;
 
+    [Header("Shop Panel")]
+    [SerializeField] private GameObject shopPanel;
+
+    [Header("Gold Panel")]
+    [SerializeField] private TextMeshProUGUI goldText;
+
     private void Update()
     {
         UpdatePlayerUI();
@@ -51,32 +57,35 @@ public class UIManager : Singletone<UIManager>
 
     public void ToggleStatsPanel()
     {
-        bool isPanelVisible = statsPanel.activeSelf;
-        statsPanel.SetActive(!isPanelVisible);
-
-        if (!isPanelVisible)  // 패널이 새로 열렸을 때만 업데이트
-        {
-            UpdateStatsPanel();
-        }
+        TogglePanel(statsPanel);
+        UpdateStatsPanel();
     }
 
     public void ToggleInventoryPanel()
     {
-        bool isPanelVisible = inventoryPanel.activeSelf;
-        inventoryPanel.SetActive(!isPanelVisible);
+        TogglePanel(inventoryPanel);
     }
 
 
     public void ToggleNPCQuestPanel()
     {
-        bool isPanelVisible = npcQuestPanel.activeSelf;
-        npcQuestPanel.SetActive(!isPanelVisible);
+        TogglePanel(npcQuestPanel);
     }
 
     public void TogglePlayerQuestPanel()
     {
-        bool isPanelvisible = playerQuestPanel.activeSelf;
-        playerQuestPanel.SetActive(!isPanelvisible);
+        TogglePanel(playerQuestPanel);
+    }
+
+    public void ToggleShopPanel()
+    {
+        TogglePanel(shopPanel);
+    }
+
+    private void TogglePanel(GameObject panel)
+    {
+        bool isPanelVisible = panel.activeSelf;
+        panel.SetActive(!isPanelVisible);
     }
 
     #endregion
@@ -95,6 +104,7 @@ public class UIManager : Singletone<UIManager>
         hpText.text = $"{stats.Hp} / {stats.MaxHp}";
         mpText.text = $"{stats.Mp} / {stats.MaxMp}";
         expText.text = $"{stats.CurrentExp} / {stats.NextLevelExp}";
+        goldText.text = GoldManager.Instance.Golds.ToString();
     }
 
     private void UpdateStatsPanel()
@@ -143,12 +153,10 @@ public class UIManager : Singletone<UIManager>
         {
             case InteractionType.Quest:
                 ToggleNPCQuestPanel();
-
                 break;
 
             case InteractionType.Shop:
-
-
+                ToggleShopPanel();
                 break;
         }
     }
