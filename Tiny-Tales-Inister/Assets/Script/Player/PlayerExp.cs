@@ -9,6 +9,7 @@ public class PlayerExp : MonoBehaviour
 
     public void AddExp(float amount)
     {
+        player.Stats.TotalExp += amount;
         player.Stats.CurrentExp += amount;
 
         while(player.Stats.CurrentExp >= player.Stats.NextLevelExp)
@@ -17,9 +18,6 @@ public class PlayerExp : MonoBehaviour
 
             NextLevel();
         }
-
-
-
     }
 
 
@@ -27,6 +25,7 @@ public class PlayerExp : MonoBehaviour
     {
         // 레벨업
         player.Stats.Level++;
+        player.Stats.AttributePoints++;
         
         // 레벨업 후, 다음 레벨 필요 Exp
         float currentExpRequired = player.Stats.NextLevelExp;

@@ -22,6 +22,7 @@ public class PlayerAttack : MonoBehaviour
     private EnemyBrain enemyTarget;
     private Coroutine attackCoroutine;
     private PlayerMp playerMp;
+    private Player player => GetComponent<Player>();
 
     // Projectiles Shoot 
     private Transform currentAttackPosition;
@@ -37,7 +38,7 @@ public class PlayerAttack : MonoBehaviour
 
     private void Start()
     {
-        CurrentWeapon = initialWeapon;
+        EquipWeapon(initialWeapon);
 
         // ClickAttack에 할당된 키가 입력됐을 때, Attack() 함수 실행
         actions.Attack.ClickAttack.performed += ctx => Attack();
@@ -203,6 +204,12 @@ public class PlayerAttack : MonoBehaviour
         }
 
         return damage;
+    }
+
+    public void EquipWeapon(Weapon newWeapon)
+    {
+        CurrentWeapon = newWeapon;
+        player.Stats.TotalDamage = stats.BaseDamage + CurrentWeapon.Damage;
     }
 
 

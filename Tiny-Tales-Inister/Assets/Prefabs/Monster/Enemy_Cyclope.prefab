@@ -28,6 +28,7 @@ GameObject:
   - component: {fileID: 1218070082946202474}
   - component: {fileID: 1299800670887552396}
   - component: {fileID: 3583545800293448434}
+  - component: {fileID: 2485375857349268703}
   m_Layer: 7
   m_Name: Enemy_Cyclope
   m_TagString: Enemy
@@ -411,6 +412,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 10
+--- !u!114 &2485375857349268703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5673854322844015615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8471948eda834394080545e16891e583, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  expDrop: 50
 --- !u!1 &7367431981986380290
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,15 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3429ef396c92464287e0756d8a53644, type: 3}
   m_Name: PlayerStats
   m_EditorClassIdentifier: 
-  Level: 1
-  Hp: 10
-  MaxHp: 10
-  Mp: 15
-  MaxMp: 15
-  CurrentExp: 0
-  NextLevelExp: 100
+  Level: 3
+  Hp: 2
+  MaxHp: 16
+  Mp: 6
+  MaxMp: 17
+  STR: 2
+  DEX: 0
+  INT: 0
+  AttributePoints: 0
+  CurrentExp: 50
+  NextLevelExp: 225
   InitialNextLevelExp: 100
   ExpMultiplier: 50
-  BaseDamage: 2
-  CriticalDamageMultiplier: 50
-  CriticalChance: 20
+  BaseDamage: 4
+  CriticalDamageMultiplier: 52
+  CriticalChance: 10.4
+  TotalExp: 300
+  TotalDamage: 8
