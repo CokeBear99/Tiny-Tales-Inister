@@ -43,4 +43,20 @@ public class PlayerHp : MonoBehaviour, IDamageable
     }
 
 
+    public bool CanRecoverHp()
+    {
+        return (player.Stats.Hp > 0 && player.Stats.Hp < player.Stats.MaxHp);
+    }
+
+    public void RecoverHp(float amount)
+    {
+        player.Stats.Hp += amount;
+
+        if (player.Stats.Hp > player.Stats.MaxHp)
+        {
+            player.Stats.Hp += player.Stats.MaxHp;
+        }
+
+    }
+
 }

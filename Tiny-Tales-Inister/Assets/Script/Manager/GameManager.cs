@@ -1,17 +1,15 @@
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class GameManager : Singletone<GameManager>
 {
-    public static GameManager Instance;
 
     [SerializeField] private Player player;
 
-    private void Awake()
+    public Player Player => player;
+
+    protected override void Awake()
     {
-        if (Instance == null)
-            Instance = this;
-        else
-            Destroy(Instance);
+        base.Awake();
     }
 
     private void Update()
@@ -25,4 +23,6 @@ public class GameManager : MonoBehaviour
         PlayerExp playerExp = player.GetComponent<PlayerExp>();
         playerExp.AddExp(expAmount);
     }
+
+
 }
