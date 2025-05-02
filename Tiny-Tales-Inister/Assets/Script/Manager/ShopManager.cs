@@ -8,19 +8,36 @@ public class ShopManager : Singletone<ShopManager>
     [SerializeField] private Transform shopContainer;
 
     [Header("Shop Item List")]
-    [SerializeField] private ShopItem[] itemList;
+    public ShopItem[] ItemList { get; set; }
 
-    private void Start()
-    {
-        LoadShop();
-    }
+    public NPCInteraction CurrentShopNPC { get; set; }
 
-    private void LoadShop()
+
+
+    public void LoadShop()
     {
-        for (int i = 0; i< itemList.Length; i++)
+        ClearShopPanel();
+
+        for (int i = 0; i< ItemList.Length; i++)
         {
             ShopCard card = Instantiate(shopCardPrefab, shopContainer);
-            card.SetShopCard(itemList[i]);
+            card.SetShopCard(ItemList[i]);
+        }
+    }
+
+    public void ClearShopPanel()
+    {
+        if (shopContainer == null) return;
+
+        int childCount = shopContainer.childCount;
+
+        if (childCount <= 0) return;
+
+        // 생성되어 있는 상점 아이템 카드 모두 삭제
+        for (int i = 0; i < childCount; i++)
+        {
+            Transform child = shopContainer.GetChild(i);
+            Destroy(child.gameObject);
         }
     }
 

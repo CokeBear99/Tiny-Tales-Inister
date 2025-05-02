@@ -22,16 +22,13 @@ public class Inventory : Singletone<Inventory>
     private void Start()
     {
         inventory_Items = new Item_Base[inventorySize];
-        LoadInventory();
+        // 임시로 저장 비활성화 LoadInventory();
         SettingFreeSlot();
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-            AddItem(testItem, 1);
-        }
+
     }
 
     // 빈 슬롯 처리
@@ -76,7 +73,7 @@ public class Inventory : Singletone<Inventory>
                     }
 
                     Inventory_UI.Instance.DrawItem(inventory_Items[index], index);
-                    SaveInventory();
+                    // 임시로 저장 비활성화 SaveInventory();
                     return;
                 }
 
@@ -92,7 +89,7 @@ public class Inventory : Singletone<Inventory>
         {
             AddItem(item, remainingAmount);
         }
-        SaveInventory();
+        // 임시로 저장 비활성화 SaveInventory();
     }
 
     private List<int> CheckItemStock(string itemID)
@@ -152,7 +149,7 @@ public class Inventory : Singletone<Inventory>
             DecreaseItemStack(index);
         }
 
-        SaveInventory();
+        // 임시로 저장 비활성화 SaveInventory();
     }
 
     // 아이템 삭제
@@ -162,7 +159,7 @@ public class Inventory : Singletone<Inventory>
 
         DecreaseItemStack(index);
 
-        SaveInventory();
+        // 임시로 저장 비활성화 SaveInventory();
     }
 
     // 아이템 착용
@@ -194,7 +191,7 @@ public class Inventory : Singletone<Inventory>
     }
 
 
-    private void LoadInventory()
+    public void LoadInventory()
     {
         if (SaveGame.Exists(INVENTORY_KEY_DATA))
         {

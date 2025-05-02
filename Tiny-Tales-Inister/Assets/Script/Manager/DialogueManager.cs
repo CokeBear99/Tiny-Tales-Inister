@@ -36,14 +36,20 @@ public class DialogueManager : Singletone<DialogueManager>
 
     private void ShowDialogue()
     {
-        if (NPCSelected == null || dialogueStarted == true) return;
+        if (NPCSelected == null || dialogueStarted == true || dialoguePanel == null) return;
 
         dialoguePanel.SetActive(true);
         LoadDialogueFromNPC();
 
-        npcIcon.sprite = NPCSelected.DialogueToShow.Icon;
-        npcNameText.text = NPCSelected.DialogueToShow.Name;
-        npcDialogueText.text = NPCSelected.DialogueToShow.Greeting;
+        if (npcIcon != null && NPCSelected.DialogueToShow.Icon != null)
+            npcIcon.sprite = NPCSelected.DialogueToShow.Icon;
+
+        if (npcNameText != null)
+            npcNameText.text = NPCSelected.DialogueToShow.Name;
+
+        if (npcDialogueText != null)
+            npcDialogueText.text = NPCSelected.DialogueToShow.Greeting;
+
         dialogueStarted = true;
     }
 
@@ -86,9 +92,12 @@ public class DialogueManager : Singletone<DialogueManager>
 
     public void CloseDialoguePanel()
     {
-        dialoguePanel.SetActive(false);
-        dialogueStarted = false;
-        dialogueQueue.Clear();
+        if (dialoguePanel != null)
+        {
+            dialoguePanel.SetActive(false);
+            dialogueStarted = false;
+            dialogueQueue.Clear();
+        }
     }
 
 

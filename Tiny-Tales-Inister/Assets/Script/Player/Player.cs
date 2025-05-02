@@ -22,8 +22,7 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
-            UIManager.Instance.ToggleInventoryPanel();
+
     }
 
     public void RespawnPlayer()
