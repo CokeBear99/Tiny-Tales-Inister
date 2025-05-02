@@ -14,7 +14,7 @@ TagManager:
   - UI
   - Player
   - Enemy
-  - 
+  - Projectile
   - 
   - 
   - 
@@ -45,14 +45,20 @@ TagManager:
   - name: Floor
     uniqueID: 2249358073
     locked: 0
-  - name: Structure
-    uniqueID: 2144371779
+  - name: StructureBehind
+    uniqueID: 3515185187
     locked: 0
   - name: Ememy
     uniqueID: 442424423
     locked: 0
   - name: Player
     uniqueID: 4212959365
+    locked: 0
+  - name: StructureFront
+    uniqueID: 2144371779
+    locked: 0
+  - name: Projectile
+    uniqueID: 434875983
     locked: 0
   - name: UI
     uniqueID: 2738347465

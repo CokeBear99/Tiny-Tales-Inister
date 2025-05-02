@@ -20,11 +20,16 @@ public class PlayerMp : MonoBehaviour
     }
 
 
-    public void UseMp(float amount)
+    public bool UseMp(float amount)
     {
         if(player.Stats.Mp >= amount)
         {
             player.Stats.Mp = Mathf.Max(player.Stats.Mp -= amount, 0);
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 

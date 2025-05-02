@@ -6,7 +6,7 @@ public class AttackState : FSMState
     {
         StateName = "Attack";
 
-        // Actions.Add(GetComponent<Action_Attack>());
+        Actions.Add(GetComponent<Action_Attack>());
 
         Transitions.Add(GetComponent<Transition_AttackToChase>());
     }
