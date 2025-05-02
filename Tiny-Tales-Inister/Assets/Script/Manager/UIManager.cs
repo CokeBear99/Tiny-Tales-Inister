@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIManager : MonoBehaviour
+public class UIManager : Singletone<UIManager>
 {
     [Header("Stats")]
     [SerializeField] private PlayerStats stats;

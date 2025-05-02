@@ -20,6 +20,11 @@ public class Player : MonoBehaviour
         PlayerAttack = GetComponent<PlayerAttack>();
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+            UIManager.Instance.ToggleInventoryPanel();
+    }
 
     public void RespawnPlayer()
     {

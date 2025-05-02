@@ -36,7 +36,7 @@ public class PlayerMp : MonoBehaviour
 
     public bool CanRecoverMp()
     {
-        return player.Stats.Mp > 0 && player.Stats.Mp < player.Stats.MaxMp;
+        return player.Stats.Mp >= 0 && player.Stats.Mp < player.Stats.MaxMp;
     }
 
 

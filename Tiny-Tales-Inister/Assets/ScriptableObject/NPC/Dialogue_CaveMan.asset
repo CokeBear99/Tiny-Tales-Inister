@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c79e28e2010e144482bb76ac6b5ac03, type: 3}
+  m_Name: Dialogue_CaveMan
+  m_EditorClassIdentifier: 
+  Name: CaveMan
+  Icon: {fileID: 274143192, guid: d47c533dd6617fa48b143dece7cab110, type: 3}
+  HasInteraction: 0
+  InteractionTYpe: 0
+  Greeting: Hello
+  Dialogue:
+  - 'CaveMan Talk Sentence Num 1
+
+    Hi '
+  - 'CaveMan Talk Sentence Num 2
+
+    Good Bye'

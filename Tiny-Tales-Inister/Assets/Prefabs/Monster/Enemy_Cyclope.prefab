@@ -424,6 +424,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8471948eda834394080545e16891e583, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  list_CanDropItems:
+  - Name: Default Hp Potion x5 - 100%
+    Item: {fileID: 11400000, guid: 897d72fa7862a604893f39d44cc5c8ae, type: 2}
+    Quantity: 5
+    DropChance: 100
+  - Name: Default Mp Potion x5 - 50%
+    Item: {fileID: 11400000, guid: a489d4e17ff6ea54c8bafc9d91e05d7a, type: 2}
+    Quantity: 5
+    DropChance: 50
+  - Name: Default Mp Potion x10 - 20%
+    Item: {fileID: 11400000, guid: a489d4e17ff6ea54c8bafc9d91e05d7a, type: 2}
+    Quantity: 10
+    DropChance: 20
   expDrop: 50
 --- !u!1 &7367431981986380290
 GameObject:
