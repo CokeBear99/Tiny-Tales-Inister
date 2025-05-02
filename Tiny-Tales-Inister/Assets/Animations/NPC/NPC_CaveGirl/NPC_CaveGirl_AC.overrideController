@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: NPC_CaveGirl_AC
+  m_Controller: {fileID: 9100000, guid: 8fd6d581dca68c849aea4eca2b289cd8, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 5c44a840da450964bb6c4cecbd407bd9, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: d9e5b4b4e33f0554eb565776d1939726, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: d774dbe6d4d48454ba30e1b09f0a1bf5, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 48d05f11fc6f9a2438ec976773305e4d, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: e81de43dc434a0140943c985dda6654a, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: e1dfb08e9708df0448a5240e115b622a, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: ede5e7338605c364ea6e73ef2c35e919, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 994472809729bc448a3493af6f13614a, type: 2}

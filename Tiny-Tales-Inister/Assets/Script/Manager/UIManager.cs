@@ -37,6 +37,9 @@ public class UIManager : Singletone<UIManager>
     [Header("Inventory Panel")]
     [SerializeField] private GameObject inventoryPanel;
 
+    [Header("Quest Panel")]
+    [SerializeField] private GameObject npcQuestPanel;
+    [SerializeField] private GameObject playerQuestPanel;
 
     private void Update()
     {
@@ -44,13 +47,14 @@ public class UIManager : Singletone<UIManager>
     }
 
 
+    #region 패널 open/close
 
     public void ToggleStatsPanel()
     {
-        bool isStatsVisible = statsPanel.activeSelf;
-        statsPanel.SetActive(!isStatsVisible);
+        bool isPanelVisible = statsPanel.activeSelf;
+        statsPanel.SetActive(!isPanelVisible);
 
-        if (!isStatsVisible)  // 패널이 새로 열렸을 때만 업데이트
+        if (!isPanelVisible)  // 패널이 새로 열렸을 때만 업데이트
         {
             UpdateStatsPanel();
         }
@@ -58,12 +62,27 @@ public class UIManager : Singletone<UIManager>
 
     public void ToggleInventoryPanel()
     {
-        bool isInventoryVisible = inventoryPanel.activeSelf;
-        inventoryPanel.SetActive(!isInventoryVisible);
+        bool isPanelVisible = inventoryPanel.activeSelf;
+        inventoryPanel.SetActive(!isPanelVisible);
     }
 
 
-    #region Value Update
+    public void ToggleNPCQuestPanel()
+    {
+        bool isPanelVisible = npcQuestPanel.activeSelf;
+        npcQuestPanel.SetActive(!isPanelVisible);
+    }
+
+    public void TogglePlayerQuestPanel()
+    {
+        bool isPanelvisible = playerQuestPanel.activeSelf;
+        playerQuestPanel.SetActive(!isPanelvisible);
+    }
+
+    #endregion
+
+
+    #region Stat Value Update
 
 
     private void UpdatePlayerUI()
@@ -98,22 +117,40 @@ public class UIManager : Singletone<UIManager>
     #endregion
 
 
-    #region Attribute Update
+    #region Subscribe
 
 
     private void OnEnable()
     {
         PlayerUpgrade.OnPlayerUpgradeEvent += UpgradeCallback;
+        DialogueManager.OnExtraInteractionEvent += ExtraInteractionCallback;
     }
 
     private void OnDisable()
     {
         PlayerUpgrade.OnPlayerUpgradeEvent -= UpgradeCallback;
+        DialogueManager.OnExtraInteractionEvent -= ExtraInteractionCallback;
     }
 
     private void UpgradeCallback()
     {
         UpdateStatsPanel();
+    }
+
+    private void ExtraInteractionCallback(InteractionType type)
+    {
+        switch (type)
+        {
+            case InteractionType.Quest:
+                ToggleNPCQuestPanel();
+
+                break;
+
+            case InteractionType.Shop:
+
+
+                break;
+        }
     }
 
     #endregion

@@ -9,7 +9,7 @@ BlendTree:
   m_Name: Blend Tree
   m_Childs:
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 65258a9396afe4e45932577741ededd3, type: 2}
+    m_Motion: {fileID: 7400000, guid: d774dbe6d4d48454ba30e1b09f0a1bf5, type: 2}
     m_Threshold: 0
     m_Position: {x: 0, y: 1}
     m_TimeScale: 1
@@ -17,7 +17,7 @@ BlendTree:
     m_DirectBlendParameter: MoveX
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 29e1c3eff0e901f43ae8dcd4e08b9b97, type: 2}
+    m_Motion: {fileID: 7400000, guid: 5c44a840da450964bb6c4cecbd407bd9, type: 2}
     m_Threshold: 0.33333334
     m_Position: {x: 0, y: -1}
     m_TimeScale: 1
@@ -25,7 +25,7 @@ BlendTree:
     m_DirectBlendParameter: MoveX
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: f678d8335c0427d408f5f0f587b62bad, type: 2}
+    m_Motion: {fileID: 7400000, guid: ede5e7338605c364ea6e73ef2c35e919, type: 2}
     m_Threshold: 0.6666667
     m_Position: {x: 1, y: 0}
     m_TimeScale: 1
@@ -33,7 +33,7 @@ BlendTree:
     m_DirectBlendParameter: MoveX
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: a98da23e7c3bcbd459605a1c37964592, type: 2}
+    m_Motion: {fileID: 7400000, guid: e81de43dc434a0140943c985dda6654a, type: 2}
     m_Threshold: 1
     m_Position: {x: -1, y: 0}
     m_TimeScale: 1
@@ -53,7 +53,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: SpriteSheet_0
+  m_Name: NPC_CaveMan_AC
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: MoveX

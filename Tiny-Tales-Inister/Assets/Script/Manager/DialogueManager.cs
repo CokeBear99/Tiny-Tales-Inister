@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting.Antlr3.Runtime.Tree;
@@ -6,6 +7,8 @@ using UnityEngine.UI;
 
 public class DialogueManager : Singletone<DialogueManager>
 {
+    public static event Action<InteractionType> OnExtraInteractionEvent;
+
     [Header("Settings")]
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private Image npcIcon;
@@ -59,6 +62,12 @@ public class DialogueManager : Singletone<DialogueManager>
         {
             CloseDialoguePanel();
             dialogueStarted = false;
+
+            if (NPCSelected.DialogueToShow.HasInteraction)
+            {
+                OnExtraInteractionEvent?.Invoke(NPCSelected.DialogueToShow.InteractionTYpe);
+            }
+
             return;
         }
 

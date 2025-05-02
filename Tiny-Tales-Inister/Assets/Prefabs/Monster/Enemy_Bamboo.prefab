@@ -294,6 +294,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initializeState: Wander
   states: []
+  questID:
+  - 1
 --- !u!114 &301987671519908930
 MonoBehaviour:
   m_ObjectHideFlags: 0
