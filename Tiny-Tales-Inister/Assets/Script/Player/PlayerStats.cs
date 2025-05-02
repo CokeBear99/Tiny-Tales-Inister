@@ -1,5 +1,12 @@
 using UnityEngine;
 
+public enum AttributeTypes
+{
+    STR,
+    DEX,
+    INT
+}
+
 
 [CreateAssetMenu(fileName = "PlayerStats",menuName = "Player Stats")]
 public class PlayerStats : ScriptableObject
@@ -15,6 +22,12 @@ public class PlayerStats : ScriptableObject
     public float Mp;
     public float MaxMp;
 
+    [Header("Attributes")]
+    public int STR;
+    public int DEX;
+    public int INT;
+    public int AttributePoints;
+
     [Header("Exp")]
     public float CurrentExp;
     public float NextLevelExp;
@@ -26,6 +39,9 @@ public class PlayerStats : ScriptableObject
     public float CriticalDamageMultiplier;
     public float CriticalChance;
 
+    [HideInInspector] public float TotalExp;
+    [HideInInspector] public float TotalDamage;
+
 
     public void ResetPlayer()
     {
@@ -34,5 +50,13 @@ public class PlayerStats : ScriptableObject
         Level = 1;
         CurrentExp = 0;
         NextLevelExp = InitialNextLevelExp;
+        TotalExp = 0;
+        BaseDamage = 2;
+        CriticalChance = 10;
+        CriticalDamageMultiplier = 50;
+        STR = 0;
+        DEX = 0;
+        INT = 0;
+        AttributePoints = 0;
     }
 }

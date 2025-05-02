@@ -13,12 +13,14 @@ public class EnemyHp : MonoBehaviour,IDamageable
     private Animator animator;
     private EnemyBrain enemyBrain;
     private EnemySelector enemySelector;
+    private EnemyLoot enemyLoot;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
         enemyBrain = GetComponent<EnemyBrain>();
         enemySelector = GetComponent<EnemySelector>();
+        enemyLoot = GetComponent<EnemyLoot>();
     }
 
     void Start()
@@ -36,15 +38,21 @@ public class EnemyHp : MonoBehaviour,IDamageable
         CurrentHp -= amount;
         if(CurrentHp <= 0)
         {
-            animator.SetTrigger("Dead");
-            enemyBrain.enabled = false;
-            enemySelector.EnemyNoSelectionCallback();
-            gameObject.layer = LayerMask.NameToLayer("Ignore Raycast");
-            OnEnemyDeadEvent?.Invoke();
+            EnemyDead();
         }
         else
         {
             DamageManager.Instance.ShowDamageText(amount, transform);
         }
+    }
+
+    private void EnemyDead()
+    {
+        animator.SetTrigger("Dead");
+        enemyBrain.enabled = false;
+        enemySelector.EnemyNoSelectionCallback();
+        gameObject.layer = LayerMask.NameToLayer("Ignore Raycast");
+        OnEnemyDeadEvent?.Invoke();
+        GameManager.Instance.AddPlayerExp(enemyLoot.ExpDrop);
     }
 }
