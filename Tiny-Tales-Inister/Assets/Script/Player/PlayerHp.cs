@@ -29,6 +29,7 @@ public class PlayerHp : MonoBehaviour, IDamageable
         if(player.Stats.Hp <= 0)
         {
             PlayerDead();
+            player.Stats.Hp = 0;
         }
     }
 
