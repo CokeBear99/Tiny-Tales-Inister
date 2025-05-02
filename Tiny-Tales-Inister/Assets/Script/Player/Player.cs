@@ -6,12 +6,17 @@ public class Player : MonoBehaviour
     [SerializeField] private PlayerStats stats;
 
     public PlayerStats Stats => stats;
+    public PlayerHp PlayerHp { get; private set; }
+    public PlayerMp PlayerMp { get; private set; }
+
 
     private PlayerAnimations animations;
 
     private void Awake()
     {
         animations = GetComponent<PlayerAnimations>();
+        PlayerHp = GetComponent<PlayerHp>();
+        PlayerMp = GetComponent<PlayerMp>();
     }
 
 

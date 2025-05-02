@@ -1,23 +1,14 @@
 using System;
 using UnityEngine;
 
-public class DamageManager : MonoBehaviour
+public class DamageManager : Singletone<DamageManager>
 {
-    public static DamageManager Instance;
-
     [Header("Config")]
     [SerializeField] private DamageText damageTextPrefab;
 
-    private void Awake()
+    protected override void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else
-        {
-            Destroy(Instance);
-        }
+        base.Awake();
     }
 
     public void ShowDamageText(float damageAmount, Transform parent)
