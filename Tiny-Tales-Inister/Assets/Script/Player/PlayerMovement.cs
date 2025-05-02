@@ -14,6 +14,8 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 moveDirection;
     private Vector2 lastMoveDirection = Vector2.down;
 
+    public Vector2 MoveDirection => moveDirection;
+
     private void Awake()
     {
         player = GetComponent<Player>();

@@ -30,11 +30,9 @@ public class Decision_CanAttackPlayer : FSMDecision
 
         if (playerCollider != null)
         {
-            Debug.Log("CanAttack");
             return true;
         }
 
-        Debug.Log("Can Not Attack");
         return false;
     }
 

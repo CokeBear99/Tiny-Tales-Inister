@@ -15,16 +15,20 @@ public class PlayerHp : MonoBehaviour, IDamageable
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        if (player.Stats.Hp <= 0)
         {
-            TakeDamage(1f);
+            PlayerDead();
+            player.Stats.Hp = 0;
         }
     }
 
 
     public void TakeDamage(float amount)
     {
+        if (player.Stats.Hp <= 0) return;
+
         player.Stats.Hp -= amount;
+        DamageManager.Instance.ShowDamageText(amount,player.transform);
     
         if(player.Stats.Hp <= 0)
         {
