@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class EnemyBrain : MonoBehaviour
 {
+    [Header("Settings")]
     [SerializeField] private string initializeState; // PatrolState
     [SerializeField] private List<FSMState> states;
+    [SerializeField] private string[] questID;
 
     public FSMState CurrentState { get; set; }
     public Transform Player { get; set; }
 
+    public string[] QuestID { get; private set; }
+
     private void Awake()
     {
         LoadStates();
+        QuestID = questID;
     }
 
     private void LoadStates()

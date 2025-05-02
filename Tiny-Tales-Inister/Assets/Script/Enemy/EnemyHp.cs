@@ -30,10 +30,6 @@ public class EnemyHp : MonoBehaviour,IDamageable
         CurrentHp = hp;
     }
 
-    void Update()
-    {
-        
-    }
 
     public void TakeDamage(float amount)
     {
@@ -56,5 +52,16 @@ public class EnemyHp : MonoBehaviour,IDamageable
         rb.bodyType = RigidbodyType2D.Static;
         OnEnemyDeadEvent?.Invoke();
         GameManager.Instance.AddPlayerExp(enemyLoot.ExpDrop);
+
+        AddQuestProgress();
+    }
+
+    private void AddQuestProgress()
+    {
+        // Äù½ºÆ® ÁøÃ´µµ
+        foreach (string questID in enemyBrain.QuestID)
+        {
+            QuestManager.Instance.AddProgress(questID, 1);
+        }
     }
 }
