@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
     public PlayerStats Stats => stats;
     public PlayerHp PlayerHp { get; private set; }
     public PlayerMp PlayerMp { get; private set; }
-
+    public PlayerAttack PlayerAttack { get; private set; }
 
     private PlayerAnimations animations;
 
@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
         animations = GetComponent<PlayerAnimations>();
         PlayerHp = GetComponent<PlayerHp>();
         PlayerMp = GetComponent<PlayerMp>();
+        PlayerAttack = GetComponent<PlayerAttack>();
     }
 
 

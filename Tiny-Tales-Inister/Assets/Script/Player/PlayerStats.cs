@@ -45,6 +45,8 @@ public class PlayerStats : ScriptableObject
 
     public void ResetPlayer()
     {
+        MaxHp = 20;
+        MaxMp = 40;
         Hp = MaxHp;
         Mp = MaxMp;
         Level = 1;

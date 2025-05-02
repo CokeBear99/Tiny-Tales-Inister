@@ -34,6 +34,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI attribute_DEX_Text;
     [SerializeField] private TextMeshProUGUI attribute_INT_Text;
 
+    [Header("Inventory Panel")]
+    [SerializeField] private GameObject inventoryPanel;
+
 
     private void Update()
     {
@@ -51,6 +54,12 @@ public class UIManager : MonoBehaviour
         {
             UpdateStatsPanel();
         }
+    }
+
+    public void ToggleInventoryPanel()
+    {
+        bool isInventoryVisible = inventoryPanel.activeSelf;
+        inventoryPanel.SetActive(!isInventoryVisible);
     }
 
 
