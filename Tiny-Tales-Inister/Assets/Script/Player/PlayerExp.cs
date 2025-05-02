@@ -35,15 +35,4 @@ public class PlayerExp : MonoBehaviour
 
         player.Stats.NextLevelExp = newNextLevelExp;
     }
-
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            AddExp(300f);
-        }
-    }
-
-
 }
