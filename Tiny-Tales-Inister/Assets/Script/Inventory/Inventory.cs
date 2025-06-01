@@ -28,6 +28,10 @@ public class Inventory : Singletone<Inventory>
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            AddItem(testItem, 1);
+        }
 
     }
 

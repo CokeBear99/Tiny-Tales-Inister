@@ -16,8 +16,8 @@ MonoBehaviour:
   ID: 1
   QuestGoal: 5
   Descritpion: Pleas kill dirty enemies in forest.
-  GoldReward: 10
-  ExpReward: 100
+  GoldReward: 1000
+  ExpReward: 400
   ItemReward:
     Item: {fileID: 11400000, guid: 897d72fa7862a604893f39d44cc5c8ae, type: 2}
     Quantity: 10

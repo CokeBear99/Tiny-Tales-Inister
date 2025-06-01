@@ -413,7 +413,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fee3b38e7d281ac449ef2c83ffaf57ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 10
+  hp: 30
+  respawnTimeRange: {x: 20, y: 30}
 --- !u!114 &2485375857349268703
 MonoBehaviour:
   m_ObjectHideFlags: 0
